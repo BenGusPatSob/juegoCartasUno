@@ -22,10 +22,14 @@ class Carta {
   }
 }
 
-
 //Mixin Pattern (algoritmo flojito para el sorting aleatorio):
-let barajar = { barajando(){ this.sort((a,b)=>{return 0.5-Math.random()})}}
-
+let barajar = {
+  barajando() {
+    this.sort((a, b) => {
+      return 0.5 - Math.random();
+    });
+  },
+};
 
 class PilaCartas {
   constructor(cartas, visibles = false) {
@@ -40,12 +44,10 @@ class MazoRobo extends PilaCartas {
     super(cartas, visibles);
     Object.assign(cartas.__proto__, barajar);
   }
-  baraja(){
-      this.cartas.barajando();
+  baraja() {
+    this.cartas.barajando();
   }
 }
-
-
 
 let carta1 = new Carta("rojo", "0", false, "1");
 let carta2 = new Carta("rojo", "0", true, "2");
@@ -54,9 +56,6 @@ let mazo = new MazoRobo([carta1, carta2, carta3]);
 console.log(mazo);
 mazo.baraja();
 console.log(mazo);
-
-
-
 
 class MazoDescartes extends PilaCartas {
   constructor(cartas, visibles = true) {
@@ -76,9 +75,7 @@ class ManoJugador extends PilaCartas {
   //   }
 }
 
-
-
-let A = [1,2,3,4];
+let A = [1, 2, 3, 4];
 A.push(5);
 console.log(A);
 // console.log(
@@ -89,4 +86,3 @@ console.log(A);
 Object.assign(A.__proto__, barajar);
 A.barajando();
 console.log(A);
-
