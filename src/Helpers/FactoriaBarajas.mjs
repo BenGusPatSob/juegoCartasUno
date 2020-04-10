@@ -1,6 +1,7 @@
-import PilaCartas from "./PilaCartas.mjs";
-import {codColMapMini, codColMapNormal, codValorMap} from "./HelpersPilaCartas.mjs";
-import Carta from "./Carta.mjs";
+import PilaCartas from '../Api/PilaCartas.mjs';
+import {codColMapMini, codColMapNormal, codValorMap} from './HelpersPilaCartas.mjs';
+import Carta from '../Api/Carta.mjs';
+
 
 //tipoUno: Mini | Normal
 export default class BarajaFactory {

@@ -1,10 +1,16 @@
-import PilaCartas from "./PilaCartas";
+import PilaCartas from './PilaCartas.mjs';
+import {
+  barajar,
+  codValorMap,
+  codOpc1,
+  codOpc2,
+} from "../Helpers/HelpersPilaCartas.mjs";
 
 export default class ManoJugador extends PilaCartas {
   constructor(cartas, visibles = false, numeroMaximo = 7) {
     super(cartas, visibles);
-    this.numeroMax = numeroMax;
-    Object.assign(cartas.__proto__, FuncionesPila.barajar); //Mixin Opc1
+    this.numeroMax = numeroMaximo;
+    Object.assign(cartas.__proto__, barajar); //Mixin Opc1
   }
   //Criterio: porValor | porColor | porCodigo | aleatorio
   ordenaCartas(criterio) {
@@ -60,5 +66,29 @@ export default class ManoJugador extends PilaCartas {
     this.cartas.forEach((elem) => {
       elem.isVisible = this.visibles;
     });
+  }
+  calculaValorEnMano() {
+    let valores = [];
+    this.cartas.map((elem) => valores.push(codValorMap.get(elem.cod)));
+    return valores;
+  }
+  calculaOpciones(cartaReferencia, ronda = 1) {
+    if ((ronda = 1)) {
+      return codOpc1.get(cartaReferencia.cod);
+    } else {
+      return codOpc2.get(cartaReferencia.cod);
+    }
+  }
+  filtraSegunCriterioCodCol(cartaReferencia, criterio) {
+    switch (criterio.toLowerCase()) {
+      case "samecode":
+        return this.cartas.filter((elem) => elem.cod == cartaReferencia.cod);
+      case "samecolor":
+        return this.cartas.filter((elem) => elem.col == cartaReferencia.col);
+      case "changecolor":
+        return this.cartas.filter((elem) => elem.cod == "swapCol");
+      default:
+        return null;
+    }
   }
 }

@@ -1,7 +1,6 @@
-import Carta from "./Carta.mjs";
-import { barajar } from "./HelpersPilaCartas.mjs";
-import MazoRobo from "./MazoRobo.mjs";
-
+import Carta from '../Api/Carta.mjs';
+import { barajar } from '../HelpersPilaCartas.mjs';
+import MazoRobo from '../Api/MazoRobo.mjs';
 ///////////////////////////////////////////////////////////Prueba sobre el array:
 let A = [1, 2, 3, 4];
 A.push(5);

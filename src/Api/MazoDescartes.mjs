@@ -1,3 +1,5 @@
+import PilaCartas from './PilaCartas.mjs';
+
 export default class MazoDescartes extends PilaCartas {
   constructor(cartas, visibles = true) {
     super(cartas, visibles);

@@ -1,6 +1,6 @@
 // import { barajar, barajaCarta } from "./FuncionesPilaCartas.mjs";
-import * as FuncionesPila from "./HelpersPilaCartas.mjs";
-import PilaCartas from "./PilaCartas.mjs";
+import * as FuncionesPila from '../Helpers/HelpersPilaCartas.mjs';
+import PilaCartas from './PilaCartas.mjs';
 
 export default class MazoRobo extends PilaCartas {
   constructor(cartas, visibles = false) {
@@ -16,7 +16,7 @@ export default class MazoRobo extends PilaCartas {
     return this.reparteCartas(1);
   }
   reparteCarta() {
-    return this.robaCarta();
+    return this.reparteCartas(1);
   }
   addCartasAlMazo(cartasToAdd) {
     this.cartas.push(...cartasToAdd);
@@ -29,7 +29,7 @@ export default class MazoRobo extends PilaCartas {
   }
   reparteCartas(numCartas) {
     let cartasRepartidas = [];
-    let numMaxCartasARepartir = Math.min(numCartas, cartas.length);
+    let numMaxCartasARepartir = Math.min(numCartas, this.cartas.length);
     for (let i = 0; i < numMaxCartasARepartir; i++) {
       cartasRepartidas.push(this.cartas.pop());
     }
