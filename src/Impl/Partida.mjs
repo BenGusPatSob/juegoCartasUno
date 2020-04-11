@@ -68,7 +68,7 @@ export default class Partida {
   reparteCartas() {
     for (let i = 0; i < this.numCartasInicial; i++) {
       this.jugadores.forEach((jugador) => {
-        jugador.cartasDeLaMano.cogeCarta(this.MazoRobo.reparteCartas(1));
+        jugador.cartasDeLaMano.cogeCarta(this.MazoRobo.reparteCartas(1)[0]);
       });
     }
     this.jugadores.forEach((jug) => jug.cartasDeLaMano.escondeTodas());

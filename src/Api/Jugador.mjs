@@ -40,7 +40,7 @@ export default class Jugador {
     let cartasElegidas = null;
     let cartaElegida = null;
     let opciones = this.cartasDeLaMano.calculaOpciones(
-      this.partida.cartaVisible,
+      cartaVisibleMazoDescartes,
       ronda
     );
     if (opciones.length > 0) {
@@ -67,18 +67,25 @@ export default class Jugador {
         case "skip":
           cartasElegidas = [];
           this.partida.avanzaJugadorActivo();
-          this.partida
-            .getJugadorActivo()
-            .lanzaOCogeCarta(cartaVisibleMazoDescartes, 2);
+          this.partida.jugadores[this.partida.jugadorActivo].lanzaOCogeCarta(
+            cartaVisibleMazoDescartes,
+            2
+          );
           break;
         case "pick1":
           cartasElegidas = [];
           this.cartasDeLaMano.cogeCarta(this.partida.MazoRobo.robaCarta());
+          this.partida.avanzaJugadorActivo();
           break;
         case "pick2":
           cartasElegidas = [];
           this.cartasDeLaMano.cogeCartas(
             this.partida.MazoRobo.reparteCartas(2)
+          );
+          this.partida.avanzaJugadorActivo();
+          this.partida.jugadores[this.partida.jugadorActivo].lanzaOCogeCarta(
+            cartaVisibleMazoDescartes,
+            2
           );
           break;
         case "pick4":
@@ -86,6 +93,8 @@ export default class Jugador {
           this.cartasDeLaMano.cogeCartas(
             this.partida.MazoRobo.reparteCartas(4)
           );
+          this.partida.avanzaJugadorActivo();
+          this.partida.jugadores[this.partida.jugadorActivo].lanzaOCogeCarta(cartaVisibleMazoDescartes, 2);
           break;
         case "startduel":
           let faroleroPringa =
@@ -108,13 +117,13 @@ export default class Jugador {
           ? cartasElegidas[Math.floor(Math.random() * cartasElegidas.length)]
           : null;
       if (cartaElegida != null) {
-        this.cartasDeLaMano.splice(
-          this.cartasDeLaMano.indexOf(cartaElegida),
+        this.cartasDeLaMano.cartas.splice(
+          this.cartasDeLaMano.cartas.findIndex(x=>x===cartaElegida),
           1
         );
         this.cartasDeLaMano.calculaValorEnMano();
         this.partida.MazoDescartes.addDescarte(cartaElegida);
-        this.partida.actualizaCartaVisible(cartaElegida);
+        // this.partida.actualizaCartaVisible(cartaElegida);
       }
     } //No hay opciones (puede pasar en la 2a ronda)
     else {

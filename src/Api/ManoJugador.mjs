@@ -56,10 +56,14 @@ export default class ManoJugador extends PilaCartas {
   }
   cogeCarta(cartaToAdd) {
     this.cartas.push(cartaToAdd);
+    if(this.cartas[0] == undefined){this.cartas.splice(0,1);}
     this.escondeTodas();
   }
   cogeCartas(cartasToAdd) {
     this.cartas.push(...cartasToAdd);
+    if (this.cartas[0] == undefined) {
+      this.cartas.splice(0, 1);
+    }
     this.escondeTodas();
   }
   escondeTodas() {

@@ -25,3 +25,7 @@ for (let i = 0; i < numeroJugadores; i++) {
 partida.incluyeJugadores(jugadores);
 //Repartimos cartas:
 partida.reparteCartas();
+let jugadorActivo = 0;
+do{
+  partida.jugadores[partida.jugadorActivo].lanzaOCogeCarta(partida.MazoDescartes.cartas[partida.MazoDescartes.cartas.length-1][0]);
+} while (partida.ganador == null);
