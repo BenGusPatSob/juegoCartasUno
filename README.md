@@ -6,7 +6,12 @@ Juego cartas (Uno) para FullStackDevelopment PostGraduateCourse @ UPC-Talent Sch
 Se basa la organización del código en clases y módulos ES6. 
 Para la modelización de la lógica de un programa de estas características, se sigue la estrategia de representar los diferentes agentes que intervienen en los procesos del juego. 
 
-De esta manera, se cuentan con clases para modelizar una partida, a un jugador, y a los diferentes grupos de cartas (baraja inicial - mazo de descartes, mazo de robo y los conjuntos de cartas de cada jugador).
+De esta manera, se cuentan con clases para modelizar una partida, a un jugador, y a los diferentes grupos de cartas (baraja inicial - mazo de descartes, mazo de robo y los conjuntos de cartas de cada jugador):
+
+![Image of Uno Mini](https://https://github.com/BenGusPatSob/juegoCartasUno/Uno_Mini.jpg)
+
+![Image of Uno Mini](https://https://github.com/BenGusPatSob/juegoCartasUno/Uno_Normal.jpg)
+
 Para materializar toda lógica se aplican los siguientes esquemas:
 1. Se aplica un Module Pattern para la gestión de paquetes de software: ES6 modules y Webpack.
 2. Las clases no se orientan hacia la capa de persistencia (no existen DTOs ni DAOs, no se implementa Service Locator ni Dependency Injection) ni se plantea patrones de diseño orientados a separar datos de la gestión de los mismos (por ejemplo en el caso de que se deseara guardar una partida): las clases contienen datos y funcionalidad.
