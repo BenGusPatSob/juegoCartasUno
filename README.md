@@ -8,7 +8,7 @@ Para la modelización de la lógica de un programa de estas características, se
 
 De esta manera, se cuentan con clases para modelizar una partida, a un jugador, y a los diferentes grupos de cartas (baraja inicial - mazo de descartes, mazo de robo y los conjuntos de cartas de cada jugador):
 
-![Image of Uno Mini](https://https://github.com/BenGusPatSob/juegoCartasUno/Uno_Mini.jpg)
+![Image of Uno Mini](https://benguspatsob.github.com/juegoCartasUno/Uno_Mini.jpg)
 
 ![Image of Uno Mini](https://https://github.com/BenGusPatSob/juegoCartasUno/Uno_Normal.jpg)
 
