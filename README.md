@@ -10,7 +10,7 @@ De esta manera, se cuentan con clases para modelizar una partida, a un jugador, 
 
 ![Image of Uno Mini](https://benguspatsob.github.com/juegoCartasUno/Uno_Mini.jpg)
 
-![Image of Uno Mini](https://https://github.com/BenGusPatSob/juegoCartasUno/Uno_Normal.jpg)
+![Image of Uno Normal](https://benguspatsob.github.com/juegoCartasUno/Uno_Normal.jpg)
 
 Para materializar toda lógica se aplican los siguientes esquemas:
 1. Se aplica un Module Pattern para la gestión de paquetes de software: ES6 modules y Webpack.
